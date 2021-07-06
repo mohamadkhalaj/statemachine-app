@@ -1,0 +1,1 @@
+web: gunicorn reductionAPI.wsgi --log-file -

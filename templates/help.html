@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Atamata</title>
+    <link rel="icon" href="https://bayanbox.ir/download/6608403507586395992/right-arrow.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+          integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #CCD3DB;
+        }
+
+        p {
+            font-size: 18px;
+            font-family: 'Comic Sans MS', 'Calibri';
+        }
+
+        h1 {
+            color: #92D806;
+
+        }
+
+        .mains {
+            text-align: justify;
+            margin-top: 70px;
+            float: right;
+            width: 550px;
+            height: 450px;
+            padding: 30px;
+            background-color: white;
+        }
+
+        .context1 {
+            margin-right: 200px;
+            margin-left: 30px;
+            direction: rtl;
+        }
+
+        .context2 {
+        }
+
+        .my_image {
+            margin-top: 20px;
+            margin-left: 30px;
+        }
+
+        .start {
+            margin-top: 70px;
+            width: 1500px;
+            height: auto;
+            padding-bottom: 100px;
+
+        }
+
+
+        .quick_start {
+            width: 800px;
+            height: 220px;
+            margin-left: 150px;
+            background-color: #F5FAFF;
+            border-left: 3px #3B99FC solid;
+
+        }
+
+        .error {
+            width: 800px;
+            height: 150px;
+            margin-left: 150px;
+            background-color: #F5FAFF;
+            border-left: 3px red solid;
+        }
+
+        .error h3 {
+            color: red;
+        }
+
+        .error p {
+            padding-left: 45px;
+
+        }
+
+        h3 {
+            color: #3B99FC;
+            padding-left: 25px;
+            padding-top: 25px;
+            font-family: 'Comic Sans MS', 'Calibri';
+        }
+
+        .quick_start p {
+            padding-left: 45px;
+        }
+
+        .bottom {
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            background: #333333;
+            display: inline-block;
+            height: 75px;
+            width: 150px;
+            border-bottom-left-radius: 110px;
+            border-bottom-right-radius: 110px;
+            margin-left: 655px;
+            font-family: 'Comic Sans MS', 'Calibri';
+            padding-top: 10px;
+
+        }
+
+        .bottom a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .bottom a:hover {
+            color: #3B99FC;
+            transition-duration: 1s;
+        }
+
+        .bottom_link:hover .bottom {
+            color: #3797bf;
+            transition-duration: 0.5s;
+        }
+
+        .bottom_link:active {
+            transition-duration: 1s;
+
+        }
+
+
+    </style>
+</head>
+<body>
+<div style="height: 100px; background-color: #333333">
+    <img src="https://bayanbox.ir/download/2288253702555204913/atamata.png" width="200px" class="my_image">
+</div>
+<div class="container" style="width: 1500px;">
+    <div class="col-md-6 mains context1">
+        <h1><b>به آتاماتا خوش آمدید</b></h1><br>
+        <p>وب سرویس آتاماتا اینجاس که بتواند با استفاده از آن محاسبات ماشینی خود را با آن انجام دهید </p>
+        <p>- برای تبدل عبارت <b>NFA</b> به <b>DFA</b> کافیست از مسیر /nfa-to-dfa/ عبارت <b>NFA</b> را به صورت جیسون
+            در URL اضافه کرده و خروجی <b>DFA</b> خود را به صورت خروجی جیسون دریافت کنید </p>
+        <p>- همچنین برای تبدل عبارت <b>NFA</b> به <b>Reduction</b> کافیست از مسیر /reduction/ عبارت <b>NFA</b> را به
+            صورت جیسون در URL اضافه کرده و خروجی <b>Reduction</b> خود را به صورت خروجی جیسون دریافت کنید </p>
+
+    </div>
+
+    <div class="col-md-6 mains context2">
+        <h1><b>Welcome to Atamata</b></h1><br>
+        <p> Atamata web service is here where you can use it to do your machine calculations </p>
+        <p> - To convert <b>NFA</b> to <b>DFA</b>, you just add <b>NFA</b> as Jason in the URL from the /nfa-to-dfa/
+            path and get your <b>DFA</b> output as Jason output.</p>
+        <p> - Also, to convert <b>NFA</b> to <b>Reduction</b>, just add <b>NFA</b> as Jason in the URL from the
+            /reduction/ path and get your <b>Reduction</b> output as Jason output.</p>
+    </div>
+
+</div>
+
+<a href="#here" class="bottom_link">
+    <div class="bottom" id="here">Quick start</div>
+</a>
+
+<div class="container start">
+    <div class="quick_start">
+        <h3>nfa to dfa</h3>
+        <p>1. Load https://automaton-app.herokuapp.com/nfa-to-dfa/{your json form of nfa}</p>
+        <p>2. Get the first Array object of the JSON response</p>
+        <p>3. Load it’s .url</p>
+        <p>4. Enjoy your dfa as json form</p>
+    </div>
+    <div class="quick_start">
+        <h3>Reduction</h3>
+        <p>1. Load https://automaton-app.herokuapp.com/reduction/{your json form}</p>
+        <p>2. Get the first Array object of the JSON response</p>
+        <p>3. Load it’s .url</p>
+        <p>4. Enjoy your Reduction as json form</p>
+    </div>
+    <div class="error">
+        <h3>Error handling</h3>
+        <p> - If use DFA form as input you get json which has ‘is_dfa’ Key that validate by True.</p>
+        <p> - If program get any errors and it don’t work and it gets ‘status’: null .</p>
+
+    </div>
+</div>
+</body>
+</html>
+
+
