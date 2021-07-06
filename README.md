@@ -28,13 +28,101 @@ https://automaton-app.herokuapp.com/nfa-to-dfa/{json_format}
 
 First index of our json is states name and in each states we set their connection and state status. for example in state "q0" we have just one connection with "q1" by "a" and other connection like "b" , "λ" , "c" are null but we shouldn't remove them from our input json and the last value "state" show the status of our state and only get "start" , "final" , "normal" value.
 
-{"q0":{"a":["q1"],"b":[],"λ":[],"state":["start"]},"q1":{"a":[],"b":["q2"],"λ":[],"state":["normal"]},"q2":{"a":[],"b":[],"λ":["q2"],"state":["final"]}}
+{
+   "q0":{
+      "a":[
+         "q1"
+      ],
+      "b":[
+         
+      ],
+      "λ":[
+         
+      ],
+      "state":[
+         "start"
+      ]
+   },
+   "q1":{
+      "a":[
+         
+      ],
+      "b":[
+         "q2"
+      ],
+      "λ":[
+         
+      ],
+      "state":[
+         "normal"
+      ]
+   },
+   "q2":{
+      "a":[
+         
+      ],
+      "b":[
+         
+      ],
+      "λ":[
+         "q2"
+      ],
+      "state":[
+         "final"
+      ]
+   }
+}
 
 ## Output example
 
 In output we only have one extra states status and its "TRAP" like state "2" and other value are like input value.
 
-{"0":{"state":["start"],"a":["1"],"b":["2"]},"1":{"state":["normal"],"a":["2"],"b":["3"]},"2":{"state":["TRAP"],"a":["2"],"b":["2"]},"3":{"state":["final"],"a":["2"],"b":["2"]}}
+{
+   "0":{
+      "state":[
+         "start"
+      ],
+      "a":[
+         "1"
+      ],
+      "b":[
+         "2"
+      ]
+   },
+   "1":{
+      "state":[
+         "normal"
+      ],
+      "a":[
+         "2"
+      ],
+      "b":[
+         "3"
+      ]
+   },
+   "2":{
+      "state":[
+         "TRAP"
+      ],
+      "a":[
+         "2"
+      ],
+      "b":[
+         "2"
+      ]
+   },
+   "3":{
+      "state":[
+         "final"
+      ],
+      "a":[
+         "2"
+      ],
+      "b":[
+         "2"
+      ]
+   }
+}
 
 ## Errors
 
