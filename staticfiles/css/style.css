@@ -120,7 +120,7 @@ ul {
   transition: all 0.5s;
 }
 #scroll_btn{
-  background-image: url("../image/up-arrow (1).png");
+  background-image: url("/static/image/up-arrow1.png");
   background-repeat: no-repeat;
   background-size: cover;
   display: none;
@@ -141,7 +141,7 @@ ul {
 }
 
 #scroll_btn:hover {
-  background-image: url("../image/up-arrow (2).png");
+  background-image: url("/static/image/up-arrow2.png");
 }
 
 
@@ -334,7 +334,7 @@ a:hover {
   margin-top: -60px;
 }
 #btn__move:hover{
-  background-image: url("../image/move (4).png ");
+  background-image: url("/static/image/move4.png");
   background-color: #000000;
 }
 #btn__move{
@@ -344,7 +344,7 @@ a:hover {
   margin-top: -60px;
   cursor: move;
   z-index: 1000;
-  background-image: url("../image/move (5).png ");
+  background-image: url("/static/image/move5.png");
   background-size: cover;
 }
 .login__text .btn:last-child {
