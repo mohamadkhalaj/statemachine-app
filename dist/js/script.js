@@ -550,7 +550,7 @@ var newNode_draw = function(x, y, s_name) {
 
 function draw_states_connections(inpt) {
     get_all_states(inpt).forEach(function(item, index) {
-        newNode_draw(getRandom(200, 1200), getRandom(100, 520),item)
+        newNode_draw(getRandom(200, 1200), getRandom(100, 480),item)
     })
 }
 
