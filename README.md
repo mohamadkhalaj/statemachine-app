@@ -27,7 +27,7 @@ https://automaton-app.herokuapp.com/nfa-to-dfa/{json_format}
 ## Input example
 
 First index of our json is states name and in each states we set their connection and state status. for example in state "q0" we have just one connection with "q1" by "a" and other connection like "b" , "λ" , "c" are null but we shouldn't remove them from our input json and the last value "state" show the status of our state and only get "start" , "final" , "normal" value.
-
+```javascript
 {
    "q0":{
       "a":[
@@ -72,11 +72,11 @@ First index of our json is states name and in each states we set their connectio
       ]
    }
 }
-
+```
 ## Output example
 
 In output we only have one extra states status and its "TRAP" like state "2" and other value are like input value.
-
+```javascript
 {
    "0":{
       "state":[
@@ -123,7 +123,7 @@ In output we only have one extra states status and its "TRAP" like state "2" and
       ]
    }
 }
-
+```
 ## Errors
 
 If send empty json we will see this errors:
