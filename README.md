@@ -153,18 +153,18 @@ If send NFA machine we will see this error because reduction algorithm just get 
 
 # How to use
 
-Click and drag new Connections from the orange div in each State, Each State supports up to 20 Connections.
+- Click and drag new Connections from the orange div in each State, Each State supports up to 20 Connections.
 
-Click on a Connection to delete or rename it.
+- Click on a Connection to delete or rename it.
 
-Double click on black movable button to see Clear , NTD , Red and help button.
+- Double click on black movable button to see Clear , NTD , Red and help button.
 
-Right click to white page to see menu of button.
+- Right click to white page to see menu of button.
 
-Click on a 'Nfa 2 Dfa' button to convert from Nfa to Dfa and Show it.
+- Click on a 'Nfa 2 Dfa' button to convert from Nfa to Dfa and Show it.
 
-Click on a 'Reduction' button to process a Reduction algorithm.
+- Click on a 'Reduction' button to process a Reduction algorithm.
 
-RightClick on a State to delete, rename, Start or Final it.
+- RightClick on a State to delete, rename, Start or Final it.
 
-Double click on whitespace to add a new State.
+- Double click on whitespace to add a new State.
