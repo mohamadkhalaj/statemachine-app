@@ -163,7 +163,7 @@ path, .jtk-endpoint { cursor:pointer; }
 .stateName {
     color: black;
     flex-grow: 1;
-    /*cursor: text;*/
+    cursor: text;
 }
 
 ul {

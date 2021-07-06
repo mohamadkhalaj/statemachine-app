@@ -394,7 +394,7 @@ function send_data(e, check = 0) {
                     type = 'reduction';
                 }
                 document.getElementById("reload_menu").style.display="block"
-                document.getElementById("btn__move").style.backgroundImage="url(../image)"
+                document.getElementById("btn__move").style.backgroundImage="url('dist/image/move (4).png ')"
             }
             var out = JSON.stringify(make_JSON());
             connect(type, out);
@@ -490,6 +490,7 @@ var initNode = function(el) {
     var span = document.createElement('span')
     span.className = 'stateName'
     span.innerHTML = el.id + "&nbsp;&nbsp;<div class=\"ep\"></div>";
+    span.addEventListener("click", rename_clicked_state);
     el.appendChild(span)
     el.addEventListener('mouseover', fix_delete_position)
     el.addEventListener("contextmenu", rightClick);
@@ -550,7 +551,7 @@ var newNode_draw = function(x, y, s_name) {
 
 function draw_states_connections(inpt) {
     get_all_states(inpt).forEach(function(item, index) {
-        newNode_draw(getRandom(200, 1200), getRandom(100, 480),item)
+        newNode_draw(getRandom(200, 1200), getRandom(70, 450),item)
     })
 }
 
