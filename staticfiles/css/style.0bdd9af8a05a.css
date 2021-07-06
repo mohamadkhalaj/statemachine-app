@@ -334,7 +334,7 @@ a:hover {
   margin-top: -60px;
 }
 #btn__move:hover{
-  background-image: url("/static/image/move4.692151349ede.png");
+  background-image: url("/static/image/move4.692151349ede.png") !important;
   background-color: #000000;
 }
 #btn__move{
