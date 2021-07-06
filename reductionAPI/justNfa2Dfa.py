@@ -59,10 +59,11 @@ class JustNfa2Dfa:
                         if self.nfa[j][k] != []:
                             temp = self.nfa[j][k]
                             self.nfa[i][k].extend([item for item in temp if item not in self.nfa[i][k]])
-            for x in self.Alphabet:
-                for y in self.nfa[i][x]:
-                    self.nfa[i][x].extend([item for item in self.nfa[y]['λ'] if item not in self.nfa[i][x]])
-                    self.nfa[i][x] = sorted(self.nfa[i][x])
+            if self.nfa[i]['λ'] != []:
+                for x in self.Alphabet:
+                    for y in self.nfa[i][x]:
+                        self.nfa[i][x].extend([item for item in self.nfa[y]['λ'] if item not in self.nfa[i][x]])
+                        self.nfa[i][x] = sorted(self.nfa[i][x])
 
     # Removing All Repeated Tansitions And Also Determining Final states
     def RepeatedRemove(self):
