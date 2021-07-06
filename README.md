@@ -127,13 +127,13 @@ In output we only have one extra states status and its "TRAP" like state "2" and
 ## Errors
 
 If send empty json we will see this errors:
-
+```javascript
 {"status": null}
-
+```
 If send DFA machine we will see this errors because the DFA machine didnt need to change DFA and the input machine should be NFA:
-
+```javascript
 {"is_dfa": True}
-
+```
 ## Reduction
 https://automaton-app.herokuapp.com/reduction/{json_format}
 
@@ -142,13 +142,13 @@ All of the inputs and outputs in reduction are like nfa to dfa Api.
 ## Errors
 
 If send empty json we will see this errors:
-
+```javascript
 {"status": null}
-
+```
 If send NFA machine we will see this error because reduction algorithm just get DFA machine:
-
+```javascript
 {"is_nfa": True}
-
+```
 
 
 # How to use
