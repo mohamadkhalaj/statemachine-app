@@ -1,6 +1,6 @@
-#Introduction
+# Introduction
 
-Our program consists of two main parts, including conversion of nondeterministic finite automaton (NFA) to deterministic finite automaton (DFA) and also reduction for minimizing the given input as much as possible.
+Our program consists of two main parts, including conversion of non deterministic finite automaton (NFA) to deterministic finite automaton (DFA) and also reduction for minimizing the given input as much as possible.
 
 
 
