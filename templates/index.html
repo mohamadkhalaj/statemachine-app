@@ -1,0 +1,328 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <title>State Machine | Nfa to Dfa & Reduction</title>
+        <link rel="icon" href="./dist/image/tab-icon 2.png">
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+        <meta name="viewport" content="width=1024" />
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Permanent+Marker&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="stylesheet" href="{% static 'css/jsplumbtoolkit-defaults.css' %}">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        <link rel="stylesheet" href="{% static 'css/jsplumbtoolkit-demo.css' %}">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+    </head>
+    <body data-demo-id="statemachine">
+    <div class="menue">
+        <ul class="menue__container">
+
+            <li class="menue__item home active">
+                <a href="#">
+                    <ion-icon name="home"></ion-icon>
+                    <span class="item__text">Home</span>
+                </a>
+            </li>
+            <li class="menue__item machine">
+                <a href="#">
+                    <ion-icon name="calculator"></ion-icon>
+                    <span class="item__text">Calculate</span>
+                </a>
+            </li>
+            <li class="menue__item document">
+                <a href="#">
+                    <ion-icon name="book"></ion-icon>
+                    <span class="item__text">Document</span>
+                </a>
+            </li>
+            <li class="menue__item about">
+                <a href="#">
+                    <ion-icon name="alert" md="information-circle"></ion-icon>
+                    <span class="item__text">AboutUs</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <main class="Dcontainer">
+        <div class="page home-container active">
+            <h1 class="home__header">Automata</h1>
+            <div class="home__text">
+                <p class="text">
+                    The best choice for your NFA/DFA calculations!
+                </p>
+                <a class="start-machine" href="#">Start now !</a>
+            </div>
+            <img class="home__image" src="{% static 'image/design-plans-2.png' %}" alt="landing" />
+
+            <div class="social">
+                <p class="social__text">Star us on Github! <a target="_blank" style="text-decoration: none; color:black;" href="https:/github.com/mohamadkhalaj/statemachine-app"><i style="font-size: 30px;" class="fa fa-github" aria-hidden="true"></i></a></p>
+            </div>
+        </div>
+        <!-- ACCOUNT -->
+        <div class="page machine-container">
+            <div class="btns-bar" id="btns-bar">
+                <div class="up_div"> <button type="button" onclick="send_data(event)" title="Nfa to Dfa" class="btn btn-outline-primary" style="margin-right: 40px;visibility: hidden" id="btn__nfa"><i class="fa fa-refresh fa-spin onLoad"></i>NtD</button></div>
+                <div class="mid_div">
+                    <button type="button" onclick="cls(true)" class="btn btn-outline-primary" title="Clear" style="margin-right: 40px;visibility: hidden" id="btn__clear"><i style="font-size: 30px;" class="fa fa-trash" aria-hidden="true"></i></button>
+                    <button type="button" ondblclick="closeBar()" title="Move" class="btn btn-outline-primary" id="btn__move"><i class="fa fa-refresh fa-spin onLoad" id="reload_menu" style="z-index: 1000"></i></button>
+                    <button type="button" onclick="help_message('we help you','help')" title="Help" class="btn btn-outline-primary" id="btn__help" style="visibility: hidden;"></i><i style="font-size: 30px;" class="fa fa-question-circle" aria-hidden="true"></i></button>
+                </div>
+                <div class="down_div">
+                <button type="button" onclick="send_data(event)" title="Reduction" class="btn btn-outline-primary" id="btn__reduction" style="visibility: hidden"><i class="fa fa-refresh fa-spin onLoad"></i>RED</button>
+                </div>
+            </div>
+            <div class="jtk-demo-main">
+                <!-- demo -->
+
+
+                <div class="jtk-demo-canvas canvas-wide statemachine-demo jtk-surface jtk-surface-nopan" id="canvas">
+
+                </div>
+                <!-- /demo -->
+
+            </div>
+
+            <!-- contextmenu -->
+            <div id="contextMenu" class="context-menu" style="display: none">
+                <ul class="menu">
+                    <li class="start" onclick="make_start(event)"><i class="fa fa-play" aria-hidden="true"></i><span id="start-menu"> Start</span></li>
+                    <li class="final" onclick="make_final(event)"><i class="fa fa-genderless" aria-hidden="true"></i><span id="final-menu"> Final</span></li>
+                    <li class="rename" onclick="rename_clicked_state(event)"><i class="fa fa-pencil" aria-hidden="true"></i><span id="rename-menu"> Rename</span></li>
+                    <li class="trash" onclick="delete_button(event)"><i class="fa fa-trash" aria-hidden="true"></i><span id="trash-menu"> Delete</span></li>
+                </ul>
+            </div>
+            <!-- end contextmenu -->
+
+            <!-- main contextmenu -->
+            <div id="maincontextMenu" class="context-menu" style="display: none">
+                <ul class="menu">
+                    <li class="start" onclick="newNode(event.clientX - 23, event.clientY - 135)"><i class="fa fa-plus" aria-hidden="true"></i><span> Add State</span></li>
+                    <li class="final" onclick="send_data(event, 1)" id="nfa2dfa"><i class="fa fa-retweet" aria-hidden="true" id="nfa2dfa"></i><span id="nfa2dfa"> NFA to DFA</span></li>
+                    <li class="rename" onclick="send_data(event, 1)" id="reduction"><i class="fa fa-compress" aria-hidden="true" id="reduction"></i><span id="reduction"> Reduction</span></li>
+                    <li class="trash" onclick="cls(true)"><i class="fa fa-trash" aria-hidden="true"></i><span id="trash-menu"> Clear</span></li>
+                    <li class="start" onclick="help_message('we help you','help')"><i class="fa fa-question-circle" aria-hidden="true"></i><span> Help</span></li>
+                </ul>
+            </div>
+            <!-- end main contextmenu -->
+
+        </div>
+
+        <!-- document -->
+        <div class="page document-container">
+            <div class="side__bar">
+                <p class="intoTitle"><a href="#I1">Introduction</a></p>
+                <br><br>
+                <p class="intoTitle"><a href="#I2">Nfa To Dfa algorithms</a></p>
+                <br><br>
+                <p class="intoTitle"><a href="#I3">Reduction algorithms</a></p>
+                <br><br>
+                <p class="intoTitle"><a href="#I4">Api</a></p>
+                <br><br>
+                <p class="intoTitle"><a href="#I6">How to use</a></p>
+            </div>
+            <div>
+                <p class="intoTitle" id="I1">Introduction</p>
+                <br>
+                <p class="intoText">Our program consists of two main parts, including conversion of nondeterministic finite automaton (NFA) to deterministic finite automaton (DFA)
+                    and also reduction for minimizing the given input as much as possible.</p>
+                <br><br><br><br>
+
+                <p class="intoTitle" id="I2">NFA TO DFA algorithms</p>
+                <br>
+                <p class="intoText">NFA to DFA algorithm contains three major functions. The first function(access lambda)،finds all possible transitions using epsilon transition .The second function(lambdaremove)، removes epsilon transitions by merging the related states. The last function(repeatedremove)makes a new transition table using the old values and that table is considered as the final output of the program which will be shown for the user after turning into a json format.</p>
+                <br><br><br><br>
+
+                <p class="intoTitle" id="I3">Reduction algorithms</p>
+                <br>
+                <p class="intoText">
+                    Reduction Algorithm has two separated sections. The first section is for removing inaccessible states using function (RemoveInaccessibleStates) and the second part is for finding equal states. This part contains three major function. The first function, (createTransitionTable) is responsible for creating transition table. The second function, (findEqualStates) is  responsible for finding equal states from transition table and removing equal, repeated states. The last function, (standardTransitionTable)  is responsible for building a new machine with survived states. The final output is converted to Json format and ready to be sent to Front.
+                </p>
+                <br><br><br><br>
+
+                <p class="intoTitle" id="I4">Api</p>
+                <br>
+                <p class="intoText">
+                    <h4 class="apiTitle">Nfa To Dfa</h4>
+                <hr>
+                    <div class="apiText" >https://automaton-app.herokuapp.com/nfa-to-dfa/{json format}</div>
+                <hr>
+                    <p class="apiText" >Input example</p>
+                <p class="apiText" style="margin-top: 35px">
+                    first index of our json is states name and in each states we set their connection and state status.
+                    for example in state  "q0"  we have just one connection with  "q1"  by  "a"  and other connection like "b" , "λ" , "c" are null but we shouldn't remove them from our input json and the last value "state" show the status of our state and only get "start" , "final" , "normal" value.
+                </p>
+                <div class="target"></div>
+
+                <p class="apiText" style="margin-top: 50px" >Output example</p>
+                <p class="apiText" style="margin-top: 35px">
+                    in output we only have one extra states status and its "TRAP" like state "2" and other value are like input value.
+                </p>
+                <div class="target2"></div>
+
+                <p class="apiTitle" style="color: red;margin-top:40px">Errors</p>
+                <p class="apiText" style="margin-top: 35px">if send empty json we will see this errors .</p>
+                <div class="target3"></div>
+                <p class="apiText" style="margin-top: 15px">if send DFA machine we will see this errors because the DFA machine didnt need to change DFA and the input machine should be NFA  .</p>
+                <div class="target4"></div>
+
+                <p class="intoText">
+                <h4 class="apiTitle" style="margin-top: 50px">Reduction</h4>
+                <hr>
+                <div class="apiText" >https://automaton-app.herokuapp.com/reduction/{json format}</div>
+                <hr>
+                <p class="apiText" style="margin-top: 35px">
+                    all of the inputs and outputs in reduction are like nfa to dfa Api.
+                </p>
+                <p class="apiTitle" style="color: red;margin-top:40px">Errors</p>
+                <p class="apiText" style="margin-top: 35px">if send empty json we will see this errors .</p>
+                <div class="target5"></div>
+                <p class="apiText" style="margin-top: 15px">if send NFA machine we will see this error because reduction algorithm just get DFA machine .</p>
+                <div class="target6"></div>
+                <br><br><br><br>
+
+
+                <p class="intoTitle" id="I6">How to use</p>
+                <br>
+                <p class="intoText">
+                    Click and drag new Connections from the orange div in each State, Each State supports up to 20 Connections.<br><br>
+
+                    Click on a Connection to delete or rename it.<br><br>
+
+                    Double click on black movable button to see Clear , NTD , Red and help button.<br><br>
+
+                    Right click to white page to see menu of button.<br><br>
+
+                    Click on a 'Nfa 2 Dfa' button to convert from Nfa to Dfa and Show it.<br><br>
+
+                    Click on a 'Reduction' button to process a Reduction algorithm.<br><br>
+
+                    RightClick on a State to delete, rename, Start or Final it.<br><br>
+
+                    Double click on whitespace to add a new State.
+
+                </p>
+                <br>
+                <p class="intoText" style="text-align: center">Made with <p  style="color: red;text-align: center;margin-left: 10px;margin-top: -40px" >❤</p></p>
+                <p class="intoText" style="text-align: center;">Open Source Project Under MIT License! <a target="_blank" style="text-decoration: none; color:black;" href="https:/github.com/mohamadkhalaj/statemachine-app"><i style="font-size: 30px;" class="fa fa-github" aria-hidden="true"></i></a></p>
+            </div>
+
+        </div>
+
+        <!-- ABOUT US -->
+        <div class="page about-container">
+            <div class="about__text">
+                <p>
+                    Made With <span style="color: red">❤</span> By CE Student's
+                </p>
+            </div>
+            <div class="about__image">
+                <div class="image-container">
+                    <span class="name">
+                        <p>Amir Hosein Mousavi Nasab</p>
+                        <p>Algorithm</p>
+                    </span>
+                    <img class="image" src="{% static 'image/admin7.png' %}" alt="" />
+
+                </div>
+                <div class="image-container">
+                    <span class="name">
+                        <p>Ali Hasanzadeh</p>
+                        <p>Algorithm</p>
+                    </span>
+                    <img class="image" src="{% static 'image/admin4.png' %}" alt="" />
+
+                </div>
+                <div class="image-container">
+
+                    <span class="name">
+                        <p>Amir Hossein Bayati</p>
+                        <p>Backend Developer</p>
+                    </span>
+                    <img class="image" src="{% static 'image/admin5.png' %}" alt="" />
+                </div>
+                <div class="image-container">
+
+                    <span class="name">
+                        <p>Mohammad Mahdi Khalaj</p>
+                        <p>Frontend Developer</p>
+                    </span>
+                    <img class="image" src="{% static 'image/admin3.png' %}" alt="" />
+                </div>
+                <div class="image-container">
+
+                    <span class="name">
+                        <p>Mohammad Noroozi</p>
+                        <p>Frontend Developer</p>
+                    </span>
+                    <img class="image" src="{% static 'image/admin2.png' %}" alt="" />
+                </div>
+                <div class="container">
+
+                    <div class="row donate-row">
+                        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                            <div class="donate__container">
+                                <h4 >Crypto Currency Donate Address</h4>
+                                <br>
+                                <p class="cry_address">
+                                    <img class='crypto_logo' src="{% static 'image/bitcoin.png' %}"/>
+                                    <span id="btc">bc1qrwhd2mk06fx87t7vkjy8s6lkxvetrjz4lxnr6r</span>
+                                    <button onclick="copyFunction(['btc',this])" class="btn__copy" id="Bbtc">Copy</button>
+                                </p>
+                                <p class="cry_address">
+                                    <img class='crypto_logo' src="{% static 'image/ethereum.png' %}"/>
+                                    <span id="eth" >0x9bE9bbE0E9ab2Ae78474796D9adF189732fC8c47</span>
+                                    <button onclick="copyFunction(['eth',this])" class="btn__copy" id="Beth">Copy</button>
+                                </p>
+                                <p class="cry_address">
+                                    <img class='crypto_logo' src="{% static 'image/autamata.png' %}"/>
+                                    <span id="atm">0x9bE9bbE0E9ab2Ae78474796D9adF189732fC8c47</span>
+                                    <button onclick="copyFunction(['atm',this])" class="btn__copy" id="Batm">Copy</button>
+                                </p>
+                                <p class="cry_address">
+                                    <img class='crypto_logo' src="{% static 'image/dogecoin.png' %}"/>
+                                    <span id="doge">DLGpvSpUwP2s9qE58daBrU17JjGa2ty7bK</span>
+                                    <button onclick="copyFunction(['doge',this])" class="btn__copy" id="Bdoge">Copy</button>
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                            <div class="donate__text">Support us by Donate !</div>
+                            <div class="chose">
+                                <select class="form-select form-select-lg mb-3" id="foods" aria-label=".form-select-lg example" style="font-family: 'Fredoka One', cursive">
+                                    <option id="cafe">☕ Cafe</option>
+                                    <option id="sandwich">🥪 Sandwich</option>
+                                    <option id="pizza">🍕 Pizza</option>
+                                    <option id="food">🍱 Food</option>
+                                </select>
+                            </div>
+                            <div class="btns-donate">
+                                <button type="button" onclick="donate()" class="btn btn-outline-primary" style="width: 80px">Donate</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+    <button onclick="topFunction()" id="scroll_btn" title="Go to top"></button>
+        <!-- JS -->
+        <script src="{% static 'js/jsplumb.min.js' %}"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="{% static 'js/script.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js" onload="console.clear()"></script>
+
+        <!-- /JS -->
+    </body>
+</html>

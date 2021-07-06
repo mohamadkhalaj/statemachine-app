@@ -24,10 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-t+c#+6i+qyeo0mievzlpnpxki(4481gh-635x-23+d7jw3^!9f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['nfa-to-dfa-online.herokuapp.com', '127.0.0.1']
-
+ALLOWED_HOSTS = ['nfa-to-dfa-online.herokuapp.com', '127.0.0.1', 'localhost']
 
 # Application definition
 
@@ -124,6 +123,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

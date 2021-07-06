@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import reduction, nfaToDfa, home_page
+from .views import reduction, nfaToDfa, home_page, help_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_page),
+    path('help/', help_page),
     path('reduction/<str:value>', reduction),
     path('nfa-to-dfa/<str:value>', nfaToDfa),
 

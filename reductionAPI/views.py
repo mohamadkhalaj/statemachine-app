@@ -53,6 +53,8 @@ def error_404(request, exception):
     return render(request, 'error_404.html')
 
 def home_page(requests):
-    return render(requests, 'help.html')
+    return render(requests, 'index.html')
 
+def help_page(requests):
+    return render(requests, 'help.html')
 
