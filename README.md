@@ -22,33 +22,44 @@ Reduction Algorithm has two separated sections. The first section is for removin
 # Api
 
 ## Nfa To Dfa
-https://automaton-app.herokuapp.com/nfa-to-dfa/{json format}
+https://automaton-app.herokuapp.com/nfa-to-dfa/{json_format}
 
 ## Input example
 
-first index of our json is states name and in each states we set their connection and state status. for example in state "q0" we have just one connection with "q1" by "a" and other connection like "b" , "λ" , "c" are null but we shouldn't remove them from our input json and the last value "state" show the status of our state and only get "start" , "final" , "normal" value.
+First index of our json is states name and in each states we set their connection and state status. for example in state "q0" we have just one connection with "q1" by "a" and other connection like "b" , "λ" , "c" are null but we shouldn't remove them from our input json and the last value "state" show the status of our state and only get "start" , "final" , "normal" value.
+
+{"q0":{"a":["q1"],"b":[],"λ":[],"state":["start"]},"q1":{"a":[],"b":["q2"],"λ":[],"state":["normal"]},"q2":{"a":[],"b":[],"λ":["q2"],"state":["final"]}}
 
 ## Output example
 
-in output we only have one extra states status and its "TRAP" like state "2" and other value are like input value.
+In output we only have one extra states status and its "TRAP" like state "2" and other value are like input value.
+
+{"0":{"state":["start"],"a":["1"],"b":["2"]},"1":{"state":["normal"],"a":["2"],"b":["3"]},"2":{"state":["TRAP"],"a":["2"],"b":["2"]},"3":{"state":["final"],"a":["2"],"b":["2"]}}
 
 ## Errors
 
-if send empty json we will see this errors .
+If send empty json we will see this errors:
 
-if send DFA machine we will see this errors because the DFA machine didnt need to change DFA and the input machine should be NFA .
+{"status": null}
+
+If send DFA machine we will see this errors because the DFA machine didnt need to change DFA and the input machine should be NFA:
+
+{"is_dfa": True}
 
 ## Reduction
-https://automaton-app.herokuapp.com/reduction/{json format}
+https://automaton-app.herokuapp.com/reduction/{json_format}
 
-all of the inputs and outputs in reduction are like nfa to dfa Api.
+All of the inputs and outputs in reduction are like nfa to dfa Api.
 
 ## Errors
 
-if send empty json we will see this errors .
+If send empty json we will see this errors:
 
-if send NFA machine we will see this error because reduction algorithm just get DFA machine .
+{"status": null}
 
+If send NFA machine we will see this error because reduction algorithm just get DFA machine:
+
+{"is_nfa": True}
 
 
 
