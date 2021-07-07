@@ -394,7 +394,7 @@ function send_data(e, check = 0) {
                     type = 'reduction';
                 }
                 document.getElementById("reload_menu").style.display="block"
-                document.getElementById("btn__move").style.backgroundImage="url('/static/image/move4.png')"
+                document.getElementById("btn__move").style.backgroundImage="url('dist/image/move4.png ')"
             }
             var out = JSON.stringify(make_JSON());
             connect(type, out);
@@ -596,7 +596,7 @@ function connect(type, json) {
             }
         }else{
             document.getElementById("reload_menu").style.display="none"
-            document.getElementById("btn__move").style.backgroundImage="url('/static/image/move5.png')"
+            document.getElementById("btn__move").style.backgroundImage="url('dist/image/move5.png ')"
         }
     };
     try {
