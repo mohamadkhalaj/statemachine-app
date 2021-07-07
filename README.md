@@ -168,3 +168,18 @@ If send NFA machine we will see this error because reduction algorithm just get 
 - RightClick on a State to delete, rename, Start or Final it.
 
 - Double click on whitespace to add a new State.
+
+# How to install
+
+To run; Just do below steps:
+
+1. Install `python3`, `pip` in your system.
+2. Clone the project `https://github.com/mohamadkhalaj/statemachine-app.git`.
+3. Run below commands:
+
+  ```bash
+  pip install -r requirements.txt
+  django manage.py runserver
+  ```
+4. Open this address `http://localhost:8000/` in your browser.
+5. enjoy :)
