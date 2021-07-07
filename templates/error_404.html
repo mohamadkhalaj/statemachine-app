@@ -1,55 +1,17 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="{% static 'image/tab-icon-2.png' %}">
     <meta charset="UTF-8">
-    <title>404 not found</title>
-
-    <style>
-        @import url(https://fonts.googleapis.com/css?family=Open+Sans);
-
-        body {
-            background: #111;
-            font-family: "Open Sans", Impact;
-        }
-
-        .area {
-            text-align: center;
-            font-size: 6.5em;
-            color: #fff;
-            letter-spacing: -7px;
-            font-weight: 700;
-            text-transform: uppercase;
-            animation: blur .75s ease-out infinite;
-            text-shadow: 0px 0px 5px #fff, 0px 0px 7px #fff;
-        }
-
-        @keyframes blur {
-            from {
-                text-shadow: 0px 0px 10px #fff,
-                0px 0px 10px #fff,
-                0px 0px 25px #fff,
-                0px 0px 25px #fff,
-                0px 0px 25px #fff,
-                0px 0px 25px #fff,
-                0px 0px 25px #fff,
-                0px 0px 25px #fff,
-                0px 0px 50px #fff,
-                0px 0px 50px #fff,
-                0px 0px 50px #7B96B8,
-                0px 0px 150px #7B96B8,
-                0px 10px 100px #7B96B8,
-                0px 10px 100px #7B96B8,
-                0px 10px 100px #7B96B8,
-                0px 10px 100px #7B96B8,
-                0px -10px 100px #7B96B8,
-                0px -10px 100px #7B96B8;
-            }
-        }
+    <title>404 NOT FOUND</title>
 
     </style>
 </head>
 <body>
-<div class="area">⚠ wrong page ⚠</div>
-
+    <div style="text-align: center">
+        <img src="{% static 'image/error_404.jpg' %}" height="570px" width="750px">
+    </div>
 </body>
 </html>

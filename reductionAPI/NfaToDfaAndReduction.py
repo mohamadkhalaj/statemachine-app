@@ -54,20 +54,16 @@ class NfaToDfaAndReduction():
                 self.nfa[i]['final'] = False
             del self.nfa[i]['state']
 
-        # print("Given DFA in Reduction Program Input Format:")
-        # print(self.nfa)
+        hasstart = False
+        for i in self.nfa:
+            if self.nfa[i]['start'] == True and i != list(self.nfa.keys())[0]:
+                hasstart = True
+                prob = i
+                nfa2 = {}
+                nfa2[i] = self.nfa[i]
+        if hasstart:
+            for i in self.nfa:
+                if i != prob:
+                    nfa2[i] = self.nfa[i]
+            self.nfa = nfa2
 
-# ____________________ test
-nfa = {
-        'q0':{'0': [], '1': [] ,'state': ['start']},
-        'q1':{'0': ['q3'], '1': [], 'state': ['normal']},
-        'q2':{'0': [], '1': ['q3'], 'state': ['normal']},
-        'q3':{'0': [], '1': ['q4'], 'state': ['normal']},
-        'q4':{'0': [], '1': [], 'state': ['final']}
-}
-nfa = json.dumps(nfa)
-obj = NfaToDfaAndReduction(nfa)
-# if obj.isNFA:
-#     print("The Given Input Is An NFA So Reduction Can Not Be Done!")
-# else:
-#     print("No Problem With Input, Format Change Done !")
