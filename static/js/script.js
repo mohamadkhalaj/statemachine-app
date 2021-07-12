@@ -6,7 +6,7 @@ var conns_counter = 0;
 var start_obj;
 var state_status = [];
 var res;
-var main_url = 'http://localhost:8000/';
+var main_url = window.location.href;
 jsPlumb.ready(function () {
 
     // setup some defaults for jsPlumb.
