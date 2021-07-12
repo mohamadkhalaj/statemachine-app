@@ -22,7 +22,7 @@ Reduction Algorithm has two separated sections. The first section is for removin
 # Api
 
 ## Nfa To Dfa
-https://automaton-app.herokuapp.com/nfa-to-dfa/{json_format}
+`localhost:8000/nfa-to-dfa/{json_format}`
 
 ## Input example
 
@@ -135,7 +135,7 @@ If send DFA machine we will see this errors because the DFA machine didnt need t
 {"is_dfa": True}
 ```
 ## Reduction
-https://automaton-app.herokuapp.com/reduction/{json_format}
+`localhost:8000/reduction/{json_format}`
 
 All of the inputs and outputs in reduction are like nfa to dfa Api.
 
