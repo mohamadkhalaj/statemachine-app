@@ -179,6 +179,7 @@ To run; Just do below steps:
 
   ```bash
   pip install -r requirements.txt
+  python manage.py collectstatic 
   django manage.py runserver
   ```
 4. Open this address `http://localhost:8000/` in your browser.
