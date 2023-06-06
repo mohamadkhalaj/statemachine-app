@@ -187,3 +187,10 @@ For running this project followe below steps:
   ```
 4. Open following address `http://localhost:8000/` in your browser.
 5. enjoy :)
+
+# Team members
+- [Mohammadmahdi Khalaj](https://github.com/mohamadkhalaj) FrontEnd
+- [Mohammad Noroozi](https://github.com/norouzy/) FrontEnd
+- [Amirhossein Bayati](https://github.com/amirhossein-bayati) BackEnd
+- [Ali Hassanzadeh](https://github.com/AliHasanzadeh80) NFA 2 DFA Algorithm
+- [Amirhossein Moosavi](https://github.com/AmirH-Moosavi) Reduction Algorithm
