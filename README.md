@@ -3,21 +3,24 @@
 Our program consists of two main parts, including conversion of non deterministic finite automaton (NFA) to deterministic finite automaton (DFA) and also reduction for minimizing the given input as much as possible.
 
 
-
-
 # NFA TO DFA algorithms
 
 NFA to DFA algorithm contains three major functions. The first function(access lambda)،finds all possible transitions using epsilon transition .The second function(lambdaremove)، removes epsilon transitions by merging the related states. The last function(repeatedremove)makes a new transition table using the old values and that table is considered as the final output of the program which will be shown for the user after turning into a json format.
-
-
-
 
 # Reduction algorithms
 
 Reduction Algorithm has two separated sections. The first section is for removing inaccessible states using function (RemoveInaccessibleStates) and the second part is for finding equal states. This part contains three major function. The first function, (createTransitionTable) is responsible for creating transition table. The second function, (findEqualStates) is responsible for finding equal states from transition table and removing equal, repeated states. The last function, (standardTransitionTable) is responsible for building a new machine with survived states. The final output is converted to Json format and ready to be sent to Front.
 
 
+# Screenshots
 
+<img width="1440" alt="Screenshot 2023-06-06 at 5 35 10 PM" src="https://github.com/mohamadkhalaj/statemachine-app/assets/62938359/86fa9427-1290-41a4-bc4a-20487ac0ecaa">
+<img width="1440" alt="Screenshot 2023-06-06 at 5 35 30 PM" src="https://github.com/mohamadkhalaj/statemachine-app/assets/62938359/056cf444-3d3c-461e-8610-46609125b723">
+<img width="1440" alt="Screenshot 2023-06-06 at 5 35 40 PM" src="https://github.com/mohamadkhalaj/statemachine-app/assets/62938359/ea2a2530-adec-4478-b4d1-ab3bf1b1280d">
+<img width="1440" alt="Screenshot 2023-06-06 at 5 37 11 PM" src="https://github.com/mohamadkhalaj/statemachine-app/assets/62938359/c4bc607f-2e03-48b9-97a7-758994b0fd52">
+<img width="1440" alt="Screenshot 2023-06-06 at 5 37 30 PM" src="https://github.com/mohamadkhalaj/statemachine-app/assets/62938359/e2ebbb15-4b57-44b0-8d30-fbcf22d60f46">
+<img width="1440" alt="Screenshot 2023-06-06 at 5 37 45 PM" src="https://github.com/mohamadkhalaj/statemachine-app/assets/62938359/4a1e8bf9-aeaf-4e09-9aac-a675313a7b3f">
+<img width="1440" alt="Screenshot 2023-06-06 at 5 37 59 PM" src="https://github.com/mohamadkhalaj/statemachine-app/assets/62938359/e11e05a9-0be2-423c-8dc7-4620eafae8c4">
 
 # Api
 
@@ -169,18 +172,18 @@ If send NFA machine we will see this error because reduction algorithm just get 
 
 - Double click on whitespace to add a new State.
 
-# How to install
+# How to run
 
-To run; Just do below steps:
+For running this project followe below steps:
 
 1. Install `python3`, `pip` in your system.
-2. Clone the project `https://github.com/mohamadkhalaj/statemachine-app.git`.
+2. Clone this repository `https://github.com/mohamadkhalaj/statemachine-app.git`.
 3. Run below commands:
 
   ```bash
   pip install -r requirements.txt
   python manage.py collectstatic 
-  django manage.py runserver
+  python manage.py runserver
   ```
-4. Open this address `http://localhost:8000/` in your browser.
+4. Open following address `http://localhost:8000/` in your browser.
 5. enjoy :)
