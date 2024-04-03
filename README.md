@@ -181,9 +181,9 @@ For running this project followe below steps:
 3. Run below commands:
 
   ```bash
-  pip install -r requirements.txt
-  python manage.py collectstatic 
-  python manage.py runserver
+  pip3 install -r requirements.txt
+  python3 manage.py collectstatic 
+  python3 manage.py runserver
   ```
 4. Open following address `http://localhost:8000/` in your browser.
 5. enjoy :)
